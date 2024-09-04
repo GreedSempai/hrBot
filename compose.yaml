@@ -1,4 +1,4 @@
-version: '3'
+version: '3.12'
 
 services:
   bot:
@@ -8,8 +8,10 @@ services:
     environment:
       - BOT_TOKEN=7137476088:AAG2GrP94NS5PredenfFEn5NdkJ--INed9E
     volumes:
-      - .:/app
+      - .:/
     restart: always
+    ports: 
+    - "2005:2005"
 
 volumes:
   data:

@@ -1,10 +1,14 @@
-FROM python:3.9-slim
+FROM python:3.12-slim
+
+RUN yum update -y && \
+    yum install -y git python3.12-pip 
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY . /app 
 
-COPY . .
+RUN pip install -r requirements.txt
 
-CMD ["python", "main.py"]
+EXPOSE 2005
+
+CMD ["python3.12", "./gamma.py"]
