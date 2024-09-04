@@ -1,11 +1,11 @@
 FROM python:3.12-slim
 
-RUN yum update -y && \
-    yum install -y git python3.12-pip 
+RUN apt update -y && \
+    apt install -y git python3-pip
 
 WORKDIR /app
 
-COPY . /app 
+COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
