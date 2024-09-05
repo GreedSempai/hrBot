@@ -3,7 +3,7 @@ FROM python:3.12-slim
 RUN apt update -y && \
     apt install -y git python3-pip
 
-WORKDIR /app
+WORKDIR /gamma.py
 
 COPY requirements.txt .
 
