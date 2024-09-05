@@ -3,7 +3,9 @@ FROM python:3.12-slim
 RUN apt update -y && \
     apt install -y git python3-pip
 
-WORKDIR /gamma.py
+RUN git clone https://github.com/GreedSempai/hrBot /hrBot
+
+WORKDIR /hrBot
 
 COPY requirements.txt .
 
