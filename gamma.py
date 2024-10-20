@@ -112,8 +112,7 @@ async def dorms(message: types.Message, state: FSMContext):
          types.KeyboardButton(text="№4"),
          types.KeyboardButton(text="№5"),
          types.KeyboardButton(text="№6")],
-         [types.KeyboardButton(text="№7"),
-         types.KeyboardButton(text="№8"),
+         [types.KeyboardButton(text="№8"),
          types.KeyboardButton(text="№9"),
          types.KeyboardButton(text="№10"),
          types.KeyboardButton(text="№11")],
@@ -158,7 +157,7 @@ async def back(message: types.Message):
     )
     await message.answer("Выберите вариант:", reply_markup=keyboard)
 
-@dp.message(lambda message: message.text and message.text.lower() in ["гук", "улк", "см/э", "мт", "т", "казармы", "химический", "ск", "измайлово", "м1", "м2", "м3", "№2", "№4", "№5", "№6", "№7", "№8", "№9", "№10", "№11", "спектр", "стрела", "не помню", "ступино"])
+@dp.message(lambda message: message.text and message.text.lower() in ["гук", "улк", "см/э", "мт", "т", "казармы", "химический", "ск", "измайлово", "м1", "м2", "м3", "№2", "№4", "№5", "№6", "№8", "№9", "№10", "№11", "спектр", "стрела", "не помню", "ступино"])
 async def request_photo_text(message: types.Message, state: FSMContext):
     await state.update_data(corp=message.text.lower())
     await state.set_state(UserData.photo_and_text)
