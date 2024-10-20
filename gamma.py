@@ -35,7 +35,7 @@ async def found(message: types.Message, state: FSMContext):
         [types.KeyboardButton(text="корпус"),
          types.KeyboardButton(text="ступино")],
         [types.KeyboardButton(text="спорт комплексы")],
-        [types.KeyboardButton(text="общаги"),
+        [types.KeyboardButton(text="общежитие"),
          types.KeyboardButton(text="другое"),
          types.KeyboardButton(text="не помню")],
         [types.KeyboardButton(text="назад")]
@@ -54,7 +54,7 @@ async def lost(message: types.Message, state: FSMContext):
         [types.KeyboardButton(text="корпус"),
          types.KeyboardButton(text="ступино")],
         [types.KeyboardButton(text="спорт комплексы")],
-        [types.KeyboardButton(text="общаги"),
+        [types.KeyboardButton(text="общежитие"),
          types.KeyboardButton(text="другое"),
          types.KeyboardButton(text="не помню")],
         [types.KeyboardButton(text="назад")]
@@ -74,8 +74,8 @@ async def corpus(message: types.Message, state: FSMContext):
          types.KeyboardButton(text="улк"),
          types.KeyboardButton(text="см/э")],
         [types.KeyboardButton(text="мт"),
-         types.KeyboardButton(text="т"),
-         types.KeyboardButton(text="ибм")],
+         types.KeyboardButton(text="т")],
+        [types.KeyboardButton(text="казармы")],
         [types.KeyboardButton(text="химический"),
          types.KeyboardButton(text="назад")]
     ]
@@ -90,7 +90,12 @@ async def corpus(message: types.Message, state: FSMContext):
 async def sport(message: types.Message, state: FSMContext):
     await state.update_data(building="спорт комплексы")
     kb = [
-        [types.KeyboardButton(text="ск"), types.KeyboardButton(text="измайлово"), types.KeyboardButton(text="назад")]
+        [types.KeyboardButton(text="ск"),
+        types.KeyboardButton(text="измайлово")],
+        [types.KeyboardButton(text="м1"),
+        types.KeyboardButton(text="м2"),
+        types.KeyboardButton(text="м3")],
+        [types.KeyboardButton(text="назад")]
     ]
     keyboard = types.ReplyKeyboardMarkup(
         keyboard=kb,
@@ -99,16 +104,22 @@ async def sport(message: types.Message, state: FSMContext):
     )
     await message.answer("В каком спорт комплексе?", reply_markup=keyboard)
 
-@dp.message(F.text.lower() == "общаги")
+@dp.message(F.text.lower() == "общежитие")
 async def dorms(message: types.Message, state: FSMContext):
-    await state.update_data(building="общаги")
+    await state.update_data(building="общежитие")
     kb = [
         [types.KeyboardButton(text="№2"),
          types.KeyboardButton(text="№4"),
          types.KeyboardButton(text="№5"),
-         types.KeyboardButton(text="№6"),
-         types.KeyboardButton(text="№7"),
-         types.KeyboardButton(text="назад")]
+         types.KeyboardButton(text="№6")],
+         [types.KeyboardButton(text="№7"),
+         types.KeyboardButton(text="№8"),
+         types.KeyboardButton(text="№9"),
+         types.KeyboardButton(text="№10"),
+         types.KeyboardButton(text="№11")],
+         [types.KeyboardButton(text="спектр"),
+         types.KeyboardButton(text="стрела")],
+         [types.KeyboardButton(text="назад")]
     ]
     keyboard = types.ReplyKeyboardMarkup(
         keyboard=kb,
@@ -147,7 +158,7 @@ async def back(message: types.Message):
     )
     await message.answer("Выберите вариант:", reply_markup=keyboard)
 
-@dp.message(lambda message: message.text and message.text.lower() in ["гук", "улк", "см/э", "мт", "т", "ибм", "химический", "ск", "измайлово", "№2", "№4", "№5", "№6", "№7", "не помню", "ступино"])
+@dp.message(lambda message: message.text and message.text.lower() in ["гук", "улк", "см/э", "мт", "т", "казармы", "химический", "ск", "измайлово", "м1", "м2", "м3", "№2", "№4", "№5", "№6", "№7", "№8", "№9", "№10", "№11", "спектр", "стрела", "не помню", "ступино"])
 async def request_photo_text(message: types.Message, state: FSMContext):
     await state.update_data(corp=message.text.lower())
     await state.set_state(UserData.photo_and_text)
