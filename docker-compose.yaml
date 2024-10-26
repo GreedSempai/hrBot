@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - PORT=2005
+      - PORT=1918
     volumes:
       - .:/app
     restart: always
