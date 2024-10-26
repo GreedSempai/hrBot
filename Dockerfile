@@ -1,16 +1,18 @@
-FROM python:3.12-slim
+FROM python:3.11-slim-buster
+
+WORKDIR /app
+
+COPY . .
 
 RUN apt update -y && \
-    apt install -y git python3-pip
+    apt install -y git
 
-RUN git clone https://github.com/GreedSempai/hrBot /hrBot
-
-WORKDIR /hrBot
+RUN python3 -m venv venv && \
+    pip install --upgrade pip
 
 COPY requirements.txt .
-
 RUN pip install -r requirements.txt
 
-EXPOSE 2005
+ENV PORT=1918
 
-CMD ["python3.12", "./gamma.py"]
+ENTRYPOINT [ "python3", "/app/gamma.py" ]

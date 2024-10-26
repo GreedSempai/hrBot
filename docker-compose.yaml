@@ -1,0 +1,14 @@
+version: '3.12'
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PORT=2005
+    volumes:
+      - .:/app
+    restart: always
+    ports:
+      - "1918:1918"
