@@ -174,9 +174,9 @@ async def handle_photo_text(message: types.Message, state: FSMContext):
     photo = message.photo[-1].file_id if message.photo else None
 
     if photo and texto:
-        await bot.send_photo(chat_id="-1002077091455", photo=photo, caption=f"*Где {found_or_lost}:* {building}, {corp}\n*Что {found_or_lost}:* {texto}\n*Контакт:* {user_info}", parse_mode="Markdown")
+        await bot.send_photo(chat_id="-1002077091455", photo=photo, caption=f"<b>Где {found_or_lost}:</b> {building}, {corp}\n<b>Что {found_or_lost}:</b> {texto}\n<b>Контакт:</b> {user_info}", parse_mode="HTML")
     elif texto:
-        await bot.send_message(chat_id="-1002077091455", text=f"*Где {found_or_lost}:* {building}, {corp}\n*Что {found_or_lost}:* {texto}\n*Контакт:* {user_info}", parse_mode="Markdown")
+        await bot.send_message(chat_id="-1002077091455", text=f"<b>Где {found_or_lost}:</b> {building}, {corp}\n<b>Что {found_or_lost}:</b> {texto}\n<b>Контакт:</b> {user_info}", parse_mode="HTML")
     elif photo:
         await state.update_data(partial_photo=photo)
         await message.answer("Пожалуйста, отправьте текст.")
