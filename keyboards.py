@@ -4,8 +4,8 @@ from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, KeyboardButtonPol
 START = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Нашел"),
-            KeyboardButton(text="Потерял"),
+            KeyboardButton(text="нашел"),
+            KeyboardButton(text="потерял"),
         ]
     ],
     resize_keyboard=True,
@@ -15,16 +15,16 @@ START = ReplyKeyboardMarkup(
 BUILDING = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Корпус"),
-            KeyboardButton(text="Спорт комплексы"),
+            KeyboardButton(text="корпус"),
+            KeyboardButton(text="спорт комплексы"),
         ],
         [
-            KeyboardButton(text="Общежитие"),
-            KeyboardButton(text="Другое"),
-            KeyboardButton(text="Не помню"),
+            KeyboardButton(text="общежитие"),
+            KeyboardButton(text="другое"),
+            KeyboardButton(text="не помню"),
         ],
         [
-            KeyboardButton(text="Назад"),
+            KeyboardButton(text="назад"),
         ]
     ],
     resize_keyboard=True,
@@ -34,22 +34,22 @@ BUILDING = ReplyKeyboardMarkup(
 CORPUS = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="ГУК"),
-            KeyboardButton(text="УЛК"),
-            KeyboardButton(text="СМ/Э"),
+            KeyboardButton(text="гук"),
+            KeyboardButton(text="улк"),
+            KeyboardButton(text="см/э"),
         ],
         [
-            KeyboardButton(text="МТ"),
-            KeyboardButton(text="Т"),
-            KeyboardButton(text="К"),
+            KeyboardButton(text="мт"),
+            KeyboardButton(text="т"),
+            KeyboardButton(text="к"),
         ],
         [
-            KeyboardButton(text="Казармы"),
-            KeyboardButton(text="БМ"),
+            KeyboardButton(text="казармы"),
+            KeyboardButton(text="бмт"),
         ],
         [
-            KeyboardButton(text="Химлаб"),
-            KeyboardButton(text="Назад"),
+            KeyboardButton(text="химлаб"),
+            KeyboardButton(text="назад"),
         ]
     ],
     resize_keyboard=True,
@@ -90,11 +90,11 @@ DORMS = ReplyKeyboardMarkup(
             KeyboardButton(text="№11"),
         ],
         [
-            KeyboardButton(text="Спектр"),
-            KeyboardButton(text="Стрела"),
+            KeyboardButton(text="спектр"),
+            KeyboardButton(text="стрела"),
         ],
         [
-            KeyboardButton(text="Назад"),
+            KeyboardButton(text="назад"),
         ]
     ],
     resize_keyboard=True,
