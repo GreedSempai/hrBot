@@ -93,7 +93,7 @@ async def main():
     async def lost_handler(message: types.Message, state: FSMContext):
         await found_or_lost(message, state)
 
-    @DP.message(lambda message: message.text and message.text.lower() in ["гук", "улк", "см/э", "мт", "т", "казармы", "химлаб", "ск", "измайлово", "м1", "м2", "м3", "№2", "№4", "№5", "№6", "№8", "№9", "№10", "№11", "спектр", "стрела", "не помню", "ступино"])
+    @DP.message(lambda message: message.text and message.text.lower() in ["гук", "улк", "см/э", "мт", "т", "бмт","казармы", "химлаб", "ск", "измайлово", "м1", "м2", "м3", "№2", "№4", "№5", "№6", "№8", "№9", "№10", "№11", "спектр", "стрела", "не помню", "ступино"])
     async def request_photo_text_handler(message: types.Message, state: FSMContext):
         await handle_building(message, state)
 
